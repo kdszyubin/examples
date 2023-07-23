@@ -1,0 +1,13 @@
+version: '3'
+services:
+  fast_ns:
+    container_name: fast_ns
+    image: fast_ns:1.0
+    volumes:
+      - /data/dataset/input/fast_ns:/data/dataset/input/fast_ns
+      - /data/dataset/output/fast_ns:/data/dataset/output/fast_ns
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    environment: 
+      - MODEL_PATH=saved_models/candy.pth
